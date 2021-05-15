@@ -1,0 +1,33 @@
+{
+    "networkMode": "awsvpc",
+    "family": "my_server",
+    "cpu": "256",
+    "executionRoleArn": "arn:aws:iam::667742818948:role/ecsTaskExecutionRole",
+    "memory": "512",
+    "requiresCompatibilities": ["FARGATE"],
+    "containerDefinitions": [
+        {
+            "memoryReservation": 256,
+            "name": "my_server",
+            "image": "<IMAGE1_NAME>",
+            "essential": true,
+            "portMappings": [
+                {
+                    "protocol": "tcp",
+                    "containerPort": 8080,
+                    "hostPort": 8080
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-region": "ap-northeast-1",
+                    "awslogs-stream-prefix": "my-server",
+                    "awslogs-group": "/aws/ecs/my-server"
+                }
+            },
+            "memory": 512,
+            "cpu": 100
+        }
+    ]
+}
