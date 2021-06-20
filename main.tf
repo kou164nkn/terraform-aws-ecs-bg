@@ -7,7 +7,7 @@ provider "aws" {
 data "aws_caller_identity" "self" {}
 
 terraform {
-  required_version = "~>0.14.0"
+  required_version = "~>1.0.0"
   backend "s3" {
     region  = "ap-northeast-1"
     bucket  = "kou-terraform-aws-eks"
@@ -18,7 +18,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~>3.40.0"
+      version = "~>3.46.0"
     }
   }
 }
